@@ -1,0 +1,23 @@
+/* mat-form-field {
+    margin-right: 12px;
+  } */
+
+  .calendarButton {
+    background-color: aqua;
+    height: 50px;
+    width: 70px;
+    font-weight: 500;
+    border-radius: 5px;
+    
+  }
+
+  .calendarButton:hover {
+    background-color: purple;
+  }
+
+  .formHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+  }

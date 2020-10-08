@@ -1,0 +1,11 @@
+.birthdayCard {
+    margin: auto;
+    border-radius: 15px;
+    margin-top: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 500px;
+    background-color: snow;
+}
