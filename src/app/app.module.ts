@@ -16,7 +16,16 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
-import { FrostyBirthdayPersonComponent } from './components/frosty-birthday-person/frosty-birthday-person.component';
+
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+// import { FrostyServicesComponent } from './components/frosty-services/frosty-services.component';
+import { ReactiveFormsModule } from "@angular/forms";
+// import { MatDialog } from '@angular/material/dialog';
   
 
 
@@ -24,8 +33,7 @@ import { FrostyBirthdayPersonComponent } from './components/frosty-birthday-pers
   declarations: [
     AppComponent,
     FormCardComponent,
-    BirthdayFormComponent,
-    FrostyBirthdayPersonComponent
+    BirthdayFormComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +47,13 @@ import { FrostyBirthdayPersonComponent } from './components/frosty-birthday-pers
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'FrostyPackage'),
+    AngularFirestoreModule, // Only required for database features
+    AngularFireAuthModule, // Only required for auth features,
+    AngularFireStorageModule, // Only required for storage features,
+    ReactiveFormsModule
+    // MatDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

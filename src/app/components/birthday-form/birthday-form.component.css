@@ -19,5 +19,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
   }
+
+  .submitButton {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
