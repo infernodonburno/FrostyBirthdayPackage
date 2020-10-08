@@ -1,6 +1,6 @@
-/* mat-form-field {
-    margin-right: 12px;
-  } */
+.create-form {
+  /* margin-bottom: 250px; */
+}
 
   .calendarButton {
     background-color: aqua;
@@ -27,3 +27,20 @@
     align-items: center;
   }
 
+  .frostPic {
+    position: absolute;
+    margin-top: 275px;
+    margin-left: 325px;
+    width: 250px;
+    height: 250px;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+  }
+
+  .mainHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

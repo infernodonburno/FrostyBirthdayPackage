@@ -1,7 +1,10 @@
-<mat-card-header>
-  <h3>
-    Happy Birthday Frosty
-  </h3>
+<h3 class="mainHeader">
+  Happy Birthday Frosty Generator
+</h3>
+<mat-card-header>  
+  <div>
+    <img class="frostPic" src="../../../assets/HappyBirthdayFrosty.jpg" alt="">
+  </div>
 </mat-card-header>
 
 <form class="create-form" [formGroup]="frostyForm" (ngSubmit)="onSubmit(frostyForm.value)">

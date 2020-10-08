@@ -16,4 +16,9 @@ export class FrostyBirthdayPersonService {
       date: value.date
     });
   }
+
+  deleteUser(userKey){
+    return this.db.collection('users').doc(userKey).delete();
+  }
+  
 }
