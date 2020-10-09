@@ -1,5 +1,5 @@
 <h3 class="mainHeader">
-  Happy Birthday Frosty Generator
+  Frosty Package
 </h3>
 <mat-card-header>  
   <div>
@@ -7,7 +7,7 @@
   </div>
 </mat-card-header>
 
-<form class="create-form" [formGroup]="frostyForm" (ngSubmit)="onSubmit(frostyForm.value)">
+<form class="create-form" [formGroup]="frostyForm" novalidate (ngSubmit)="onSubmit(frostyForm.value)">
 
   <div class="formHolder">
     <mat-form-field appearance="outline">
@@ -16,25 +16,35 @@
     </mat-form-field>
 
     <ng-container *ngFor="let validation of validation_messages.name">
-      <mat-error *ngIf="frostyForm.get('name').hasError(validation.type) && (frostyForm.get('name').dirty || frostyForm.get('name').touched)">{{validation.message}}</mat-error>
+      <mat-error *ngIf="frostyForm.get('name') && (frostyForm.get('name').dirty || frostyForm.get('name').touched)">{{validation.message}}</mat-error>
     </ng-container>
 
   </div>
-
+  <br>
   <div class="formHolder">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput placeholder="johndoe@gmail.com" class="form-control" formControlName="email">
     </mat-form-field>
-  </div>
 
+    <ng-container *ngFor="let validation of validation_messages.email">
+      <mat-error *ngIf="frostyForm.get('email') && (frostyForm.get('email').dirty || frostyForm.get('email').touched)">{{validation.message}}</mat-error>
+    </ng-container>
+
+  </div>
+  <br>
   <div class="formHolder">
     <mat-form-field appearance="outline">
       <mat-label>Phone Number</mat-label>
       <input matInput placeholder="696-696-6969" class="form-control" formControlName="phone">
     </mat-form-field>
-  </div>
 
+    <ng-container *ngFor="let validation of validation_messages.phone">
+      <mat-error *ngIf="frostyForm.get('phone') && (frostyForm.get('phone').dirty || frostyForm.get('phone').touched)">{{validation.message}}</mat-error>
+    </ng-container>
+
+  </div>
+  <br>
   <div class="formHolder">
     <mat-form-field appearance="fill">
       <mat-label>Choose Your Birthday</mat-label>
@@ -42,9 +52,19 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+
+    <ng-container *ngFor="let validation of validation_messages.date">
+      <mat-error *ngIf="frostyForm.get('date') && (frostyForm.get('date').dirty || frostyForm.get('date').touched)">{{validation.message}}</mat-error>
+    </ng-container>
+
+</div>
+<br>
+<div class="submitButton">
+  <button id="btnSubmit" type="submit" mat-stroked-button color="primary">Subscribe</button>
+</div>
+<br>
+<div class="submitButton">
+  <!-- <button mat-raised-button class="delete-button" color="warn" type="button" (click)="delete()">Unsubscribe</button> -->
 </div>
 
-<div class="submitButton">
-  <button id="btnSubmit" type="submit" mat-stroked-button color="primary">Submit</button>
-</div>
 </form>

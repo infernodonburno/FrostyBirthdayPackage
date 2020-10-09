@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FrostyBirthdayPersonService } from '../../services/FrostyBirthdayPackage';
+import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-birthday-form',
@@ -12,6 +13,7 @@ import { FrostyBirthdayPersonService } from '../../services/FrostyBirthdayPackag
 export class BirthdayFormComponent implements OnInit {
 
   frostyForm: FormGroup;
+  item: any;
 
   validation_messages = {
     'name': [
@@ -20,8 +22,8 @@ export class BirthdayFormComponent implements OnInit {
     'email': [
       { type: 'required', message: 'Email is required.' }
     ],
-    'age': [
-      { type: 'required', message: 'Age is required.' },
+    'phone': [
+      { type: 'required', message: 'phone is required.' },
     ],
     'date': [
       { type: 'required', message: 'Date is required.' },
@@ -55,6 +57,7 @@ export class BirthdayFormComponent implements OnInit {
       }
     )
   }
+
   resetFields(){
     this.frostyForm = this.fb.group({
       name: new FormControl('', Validators.required),
@@ -62,6 +65,18 @@ export class BirthdayFormComponent implements OnInit {
       phone: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required)
     });
+  }
+
+  delete(){
+    this.firebaseService.deleteUser(this.item.id)
+    .then(
+      res => {
+        // this.router.navigate(['/home']);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
 }

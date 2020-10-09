@@ -12,7 +12,7 @@
   }
 
   .calendarButton:hover {
-    background-color: purple;
+    color: purple;
   }
 
   .formHolder {
@@ -25,6 +25,10 @@
     display:flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .submitButton:hover {
+    transform: scale(1.1);
   }
 
   .frostPic {
@@ -43,4 +47,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .mat-error {
+    font-size: 12px;
+    position: absolute;
+    margin-bottom: 100px;
   }

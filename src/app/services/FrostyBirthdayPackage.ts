@@ -20,5 +20,9 @@ export class FrostyBirthdayPersonService {
   deleteUser(userKey){
     return this.db.collection('users').doc(userKey).delete();
   }
-  
+
+  getUsers(userKey){
+    return this.db.collection('users').snapshotChanges();
+  }
+
 }
