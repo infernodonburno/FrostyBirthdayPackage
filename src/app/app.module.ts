@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { MatCardModule } from '@angular/material/card';
+
+import { RouterModule } from '@angular/router';
+import { rootRouterConfig } from './app.routes';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
@@ -23,9 +27,11 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-// import { FrostyServicesComponent } from './components/frosty-services/frosty-services.component';
+
 import { ReactiveFormsModule } from "@angular/forms";
-// import { MatDialog } from '@angular/material/dialog';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
+
+
   
 
 
@@ -33,11 +39,13 @@ import { ReactiveFormsModule } from "@angular/forms";
   declarations: [
     AppComponent,
     FormCardComponent,
-    BirthdayFormComponent
+    BirthdayFormComponent,
+    ThankYouComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     MatSliderModule,
     FormsModule,
     MatSliderModule,

@@ -32,7 +32,9 @@ export class BirthdayFormComponent implements OnInit {
  
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     public firebaseService: FrostyBirthdayPersonService
+
   ) { }
 
   ngOnInit() {
@@ -53,7 +55,7 @@ export class BirthdayFormComponent implements OnInit {
     .then(
       res => {
         this.resetFields();
-        // this.router.navigate(['/home']);
+        this.router.navigate(['/thank-you']);
       }
     )
   }
