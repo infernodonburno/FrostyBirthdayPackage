@@ -12,3 +12,23 @@
     transition: 0.3s;
     padding: 2px 16px;
 }
+
+.returnButton {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:125px;
+    height:125px;
+}
+
+.returnButton:hover {
+    background-color: cadetblue;
+}
+
+.thanksContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}

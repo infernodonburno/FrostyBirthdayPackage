@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FrostyBirthdayPersonService } from '../../services/FrostyBirthdayPackage';
-import { Resolve, ActivatedRouteSnapshot, ActivatedRoute } from "@angular/router";
+
+import { RxwebValidators } from "@rxweb/reactive-form-validators";
 
 @Component({
   selector: 'app-birthday-form',
@@ -21,6 +22,9 @@ export class BirthdayFormComponent implements OnInit {
     ],
     'email': [
       { type: 'required', message: 'Email is required.' }
+    ],
+    'emailConfirm': [
+      { type: 'required', message: 'Emails must match.' }
     ],
     'phone': [
       { type: 'required', message: 'phone is required.' },
@@ -45,6 +49,7 @@ export class BirthdayFormComponent implements OnInit {
     this.frostyForm = this.fb.group({
       name: ['', Validators.required ],
       email: ['', Validators.required ],
+      emailConfirm: ['', RxwebValidators.compare({fieldName: 'email'}) ],
       phone: ['', Validators.required ],
       date: ['', Validators.required ]
     });
@@ -64,6 +69,7 @@ export class BirthdayFormComponent implements OnInit {
     this.frostyForm = this.fb.group({
       name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
+      emailConfirm: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required)
     });

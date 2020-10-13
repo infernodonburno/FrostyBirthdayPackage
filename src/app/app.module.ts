@@ -30,6 +30,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { ReactiveFormsModule } from "@angular/forms";
 import { ThankYouComponent } from './components/thank-you/thank-you.component';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
   
@@ -60,7 +61,8 @@ import { ThankYouComponent } from './components/thank-you/thank-you.component';
     AngularFirestoreModule, // Only required for database features
     AngularFireAuthModule, // Only required for auth features,
     AngularFireStorageModule, // Only required for storage features,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RxReactiveFormsModule
     // MatDialog
   ],
   providers: [],

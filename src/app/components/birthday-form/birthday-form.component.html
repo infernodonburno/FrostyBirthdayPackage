@@ -25,15 +25,46 @@
   <div class="formHolder">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="johndoe@gmail.com" class="form-control" formControlName="email">
+      <input matInput placeholder="johndoe@gmail.com" 
+             class="form-control" 
+             formControlName="email"
+             pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
     </mat-form-field>
 
     <ng-container *ngFor="let validation of validation_messages.email">
-      <mat-error *ngIf="!frostyForm.get('email').valid && (frostyForm.get('email').dirty || frostyForm.get('email').touched)">{{validation.message}}</mat-error>
+      <mat-error *ngIf="!frostyForm.get('email').valid 
+                  && (frostyForm.get('email').dirty 
+                  || frostyForm.get('email').touched)"
+      >
+        {{validation.message}}
+      </mat-error>
     </ng-container>
 
   </div>
+
   <br>
+  <div class="formHolder">
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Email</mat-label>
+      <input matInput placeholder="johndoe@gmail.com" 
+             class="form-control" 
+             formControlName="emailConfirm"
+             pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+    </mat-form-field>
+
+    <ng-container *ngFor="let validation of validation_messages.emailConfirm">
+      <mat-error *ngIf="!frostyForm.get('emailConfirm').valid 
+                  && (frostyForm.get('emailConfirm').dirty 
+                  || frostyForm.get('emailConfirm').touched)"
+      >
+        {{validation.message}}
+      </mat-error>
+    </ng-container>
+
+  </div>
+
+  <br>
+
   <div class="formHolder">
     <mat-form-field appearance="outline">
       <mat-label>Phone Number</mat-label>
@@ -45,7 +76,9 @@
     </ng-container>
 
   </div>
+
   <br>
+
   <div class="formHolder">
     <mat-form-field appearance="fill">
       <mat-label>Choose Your Birthday</mat-label>
