@@ -17,7 +17,7 @@
     </mat-form-field>
 
     <ng-container *ngFor="let validation of validation_messages.name">
-      <mat-error *ngIf="frostyForm.get('name') && (frostyForm.get('name').dirty || frostyForm.get('name').touched)">{{validation.message}}</mat-error>
+      <mat-error *ngIf="!frostyForm.get('name').valid && (frostyForm.get('name').dirty || frostyForm.get('name').touched)">{{validation.message}}</mat-error>
     </ng-container>
 
   </div>
@@ -29,7 +29,7 @@
     </mat-form-field>
 
     <ng-container *ngFor="let validation of validation_messages.email">
-      <mat-error *ngIf="frostyForm.get('email') && (frostyForm.get('email').dirty || frostyForm.get('email').touched)">{{validation.message}}</mat-error>
+      <mat-error *ngIf="!frostyForm.get('email').valid && (frostyForm.get('email').dirty || frostyForm.get('email').touched)">{{validation.message}}</mat-error>
     </ng-container>
 
   </div>
@@ -41,7 +41,7 @@
     </mat-form-field>
 
     <ng-container *ngFor="let validation of validation_messages.phone">
-      <mat-error *ngIf="frostyForm.get('phone') && (frostyForm.get('phone').dirty || frostyForm.get('phone').touched)">{{validation.message}}</mat-error>
+      <mat-error *ngIf="!frostyForm.get('phone').valid && (frostyForm.get('phone').dirty || frostyForm.get('phone').touched)">{{validation.message}}</mat-error>
     </ng-container>
 
   </div>
@@ -55,13 +55,18 @@
     </mat-form-field>
 
     <ng-container *ngFor="let validation of validation_messages.date">
-      <mat-error *ngIf="frostyForm.get('date') && (frostyForm.get('date').dirty || frostyForm.get('date').touched)">{{validation.message}}</mat-error>
+      <mat-error *ngIf="!frostyForm.get('date').valid && (frostyForm.get('date').dirty || frostyForm.get('date').touched)">{{validation.message}}</mat-error>
     </ng-container>
 
 </div>
 <br>
 <div class="submitButton">
-  <button id="btnSubmit" type="submit" mat-stroked-button color="primary">Subscribe</button>
+  <button id="btnSubmit" 
+          type="submit" 
+          mat-stroked-button color="primary"
+          [disabled]="!frostyForm.valid"
+  
+  >Subscribe</button>
 </div>
 <br>
 <div class="submitButton">
